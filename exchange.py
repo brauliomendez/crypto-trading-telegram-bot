@@ -30,14 +30,14 @@ class Exchange:
         with open(self.__logs_file, "a") as f:
             f.write(f"{line}\n")
 
-    def buy(self, symbol, quote_amount, simulated_price=None):
+    def buy(self, symbol, quote_value, simulated_price=None):
         if not self.__simulated:
             # Real
             try:
-                order = self.__ex.create_order(symbol=symbol,type="market",side="buy",amount=None,params={"quoteOrderQty": quote_amount})
+                order = self.__ex.create_order(symbol=symbol,type="market",side="buy",amount=None,params={"quoteOrderQty": quote_value})
             except Exception as e:
                 now = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
-                self.__print_log(f"\n[{now}] Error buying {quote_amount}$ of {symbol}:\n{e}\n")
+                self.__print_log(f"\n[{now}] Error buying {quote_value}$ of {symbol}:\n{e}\n")
                 raise
 
             cost = order['cost']
@@ -52,14 +52,14 @@ class Exchange:
             }
         else:
             # Simulated
-            usdc_fee = quote_amount * 0.075 / 100
+            usdc_fee = quote_value * 0.075 / 100
             self.__buy_order_info = {
-                "purchased_amount": quote_amount / simulated_price,
+                "purchased_amount": quote_value / simulated_price,
                 "price": simulated_price,
-                "cost": quote_amount,
+                "cost": quote_value,
                 "usdc_fee": usdc_fee,
                 "fee_percentage": 0.075,
-                "total_cost": quote_amount + usdc_fee
+                "total_cost": quote_value + usdc_fee
             }
         now = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
         self.__print_log(f"""### INIT BUY ###

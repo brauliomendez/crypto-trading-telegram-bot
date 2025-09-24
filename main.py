@@ -13,25 +13,26 @@ async def price(update, _):
     await update.message.reply_text(f"{SYMBOL} ahora: {price}$")
 
 
-SIMULATED = True
+SIMULATED = False
 ex = exchange.Exchange(simulated=SIMULATED)
 SYMBOL = "ETH/USDC"
 
 amount=0
-quote_amount=50 #$
+QUOTE_VALUE=10 #$
 in_position=False
 
 async def buy(update, _):
     global amount
-    global quote_amount
+    global QUOTE_VALUE
     global in_position
 
     if not in_position:
         try:
+            price = None
             if SIMULATED:
                 price = ex.fetch_ticker(SYMBOL)
 
-            buy_order = ex.buy(SYMBOL, quote_amount, simulated_price=price)
+            buy_order = ex.buy(SYMBOL, QUOTE_VALUE, simulated_price=price)
             amount = buy_order['purchased_amount']
             price = buy_order['price']
             total_cost = buy_order['total_cost']
@@ -48,6 +49,7 @@ async def sell(update, _):
 
     if in_position:
         try:
+            price=None
             if SIMULATED:
                 price = ex.fetch_ticker(SYMBOL)
             

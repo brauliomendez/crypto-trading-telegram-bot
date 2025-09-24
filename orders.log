@@ -1,33 +1,33 @@
 
-[2025/09/24 11:22:44] Error buying 50$ of ETH/USDC:
+[2025/09/24 12:30:52] Error buying 50$ of ETH/USDC:
 binance Account has insufficient balance for requested action.
 
 ### INIT BUY ###
 
-[2025/09/24 11:44:14]
-  Purchased amount: 0.011957545928933912 ETH/USDC @ 4181.46
-  Cost: 50$
-  Fee: 0.0375$
-  Fee percentage: 0.075%
-  Total cost: 50.0375$
+[2025/09/24 12:33:52]
+  Purchased amount: 0.0023 ETH/USDC @ 4174.61
+  Cost: 9.601603$
+  Fee: 0.006839588400000001$
+  Fee percentage: 0.07123381793644248%
+  Total cost: 9.6084425884$
 
 ### END BUY ###
 
 ### INIT SELL ###
 
-[2025/09/24 11:44:19]
-  Sold amount: 0.011957545928933912 ETH/USDC @ 4181.46
-  Cost: 50.0$
-  Fee: 0.0375$
-  Fee percentage: 0.075%
-  Total recovered: 49.9625$
+[2025/09/24 12:34:11]
+  Sold amount: 0.0023 ETH/USDC @ 4175.44
+  Cost: 9.603512$
+  Fee: 0.006840658800000001$
+  Fee percentage: 0.07123080389757414%
+  Total recovered: 9.5966713412$
 
 ### END SELL ###
 
 Summary:
-  Operation balance without fees: 0.0$
-  Operation fees: 0.075$
-  Operation balance: -0.07500000000000284$
+  Operation balance without fees: 0.0019089999999994944$
+  Operation fees: 0.013680247200000002$
+  Operation balance: -0.011771247200000445$
 
 ################################################
 
